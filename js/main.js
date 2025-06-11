@@ -4,21 +4,21 @@
 const config = {
     assets: {
         images: {
-            hero_app_screenshot: '/images/app-hero.png',
-            feature_ai: '/images/feature-ai.png',
-            feature_personalization: '/images/feature-personalization.png',
-            feature_accessibility: '/images/feature-accessibility.png',
-            feature_narration: '/images/feature-narration.png',
-            demo_personalized_story: '/images/demo-child-story.png',
-            demo_normal_story: '/images/demo-normal-story.png',
-            testimonial_1: '/images/testimonial-1.jpg',
-            testimonial_2: '/images/testimonial-2.jpg',
-            testimonial_3: '/images/testimonial-3.jpg'
+            hero_app_screenshot: 'images/app-hero.png',
+            feature_ai: 'images/feature-ai.png',
+            feature_personalization: 'images/feature-personalization.png',
+            feature_accessibility: 'images/feature-accessibility.png',
+            feature_narration: 'images/feature-narration.png',
+            demo_personalized_story: 'images/demo-child-story.png',
+            demo_normal_story: 'images/demo-normal-story.png',
+            testimonial_1: 'images/testimonial-1.jpg',
+            testimonial_2: 'images/testimonial-2.jpg',
+            testimonial_3: 'images/testimonial-3.jpg'
         },
         audio: {
-            background_music: '/audio/background.mp3',
-            demo_personalized_narration: '/audio/demo-narration.mp3',
-            demo_normal_narration: '/audio/demo-normal-narration.mp3'
+            background_music: 'audio/background.mp3',
+            demo_personalized_narration: 'audio/demo-narration.mp3',
+            demo_normal_narration: 'audio/demo-normal-narration.mp3'
         }
     }
 };
