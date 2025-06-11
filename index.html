@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="StoryMimi creates personalized, immersive bedtime stories using AI. Inclusive storytelling for all children, including those with disabilities.">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-secondary);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+        .section-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+            background: var(--white);
+        }
+        .section-container section {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: var(--section-padding);
+        }
+    </style>
+    
+    <!-- Emoji Support -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Audio Controls -->
+    <div class="audio-controls" id="audioControls">
+        <button class="audio-toggle magnetic-button" id="audioToggle" aria-label="Toggle background audio">
+            <span class="audio-icon">🔊</span>
+        </button>
+    </div>
+
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls" id="accessibilityControls">
+        <button class="accessibility-toggle magnetic-button" id="accessibilityToggle" aria-label="Accessibility options">
+            <span class="accessibility-icon">♿</span>
+        </button>
+        <div class="accessibility-panel" id="accessibilityPanel">
+            <h3>Accessibility Options</h3>
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="dyslexiaToggle">
+                    <span class="toggle-slider"></span>
+                    Dyslexia-friendly font
+                </label>
+            </div>
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="colorBlindToggle">
+                    <span class="toggle-slider"></span>
+                    Color blindness filter
+                </label>
+            </div>
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="highContrastToggle">
+                    <span class="toggle-slider"></span>
+                    High contrast mode
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="backgroundAudio" loop>
+        <source src="audio/background.mp3" type="audio/mpeg">
+        <source src="audio/background.ogg" type="audio/ogg">
+    </audio>
+
+    <!-- Sections loaded dynamically -->
+    <div id="hero-section" class="section-container"></div>
+    <div id="problem-section" class="section-container"></div>
+    <div id="transformation-section" class="section-container"></div>
+    <div id="social-proof-section" class="section-container"></div>
+    <div id="features-section" class="section-container"></div>
+    <div id="pricing-section" class="section-container"></div>
+    <div id="testimonials-section" class="section-container"></div>
+    <div id="faq-section" class="section-container"></div>
+<!-- Final CTA Section -->
+<section class="final-cta" id="final-cta">
+    <div class="container">
+        <h2 class="section-title">Ready to Unlock a World of Imagination?</h2>
+        <p>Join the StoryMimi waitlist today and be among the first to experience personalized bedtime stories that will captivate your child's heart and mind.</p>
+        <button class="cta-button magnetic-button" id="finalCTA">
+            <span class="button-text">Join the Waitlist</span>
+            <span class="button-icon">🚀</span>
+        </button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">StoryMimi</div>
+            <nav class="footer-nav">
+                <a href="#hero">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 StoryMimi. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Waitlist Modal -->
+<div class="modal" id="waitlistModal">
+    <div class="modal-content">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <h2>Join the StoryMimi Waitlist!</h2>
+        <p>Be the first to know when StoryMimi launches and get exclusive early access.</p>
+        <form id="waitlistForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <button type="submit" class="submit-button gradient-button">Join Waitlist</button>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="assets/js/main.js"></script>
+    <script src="js/main.js"></script>
+</body>

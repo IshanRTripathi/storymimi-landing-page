@@ -1,0 +1,18 @@
+assets:
+  images:
+    hero_app_screenshot: assets/images/app-hero.png
+    feature_ai: assets/images/feature-ai.png
+    feature_personalization: assets/images/feature-personalization.png
+    feature_accessibility: assets/images/feature-accessibility.png
+    feature_narration: assets/images/feature-narration.png
+    demo_personalized_story: assets/images/demo-child-story.png
+    demo_normal_story: assets/images/demo-normal-story.png # New normal image
+    testimonial_1: assets/images/testimonial-1.jpg
+    testimonial_2: assets/images/testimonial-2.jpg
+    testimonial_3: assets/images/testimonial-3.jpg
+  audio:
+    background_music: assets/audio/background.mp3
+    demo_personalized_narration: assets/audio/demo-narration.mp3
+    demo_normal_narration: assets/audio/demo-normal-narration.mp3 # New normal audio
+
+
