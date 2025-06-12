@@ -27,33 +27,37 @@ const config = {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, starting initialization...');
     
-    // Initialize all components before loading partials
     try {
-        initAudioControls();
+        // Initialize components
+        initAudioControlsWithErrorHandling();
         initAccessibilityControls();
-        initBackgroundAudio();
         initPersonalizationDemo();
         initAccessibilityDemo();
         initWaitlistForm();
-        console.log('Components initialized');
+        initButtonAnimations();
+        initFAQAccordion();
+        initModal();
+        initMagneticButton();
+        loadSections();
     } catch (error) {
-        console.error('Error initializing components:', error);
+        console.error('Error during initialization:', error);
     }
+});
 
-    // Load HTML partials into container divs
-    const sections = [
-        'hero',
-        'problem',
-        'transformation',
-        'social-proof',
-        'features',
-        'pricing',
-        'testimonials',
-        'faq'
-    ];
+// Section list for loading
+const sections = [
+    'hero',
+    'problem',
+    'transformation',
+    'social-proof',
+    'features',
+    'pricing',
+    'testimonials',
+    'faq'
+];
 
-    // Load sections in parallel with detailed error handling
-    Promise.all(sections.map(section => {
+// Load sections in parallel with detailed error handling
+Promise.all(sections.map(section => {
         return fetch(`sections/${section}.html`)
             .then(response => {
                 console.log(`Loading section: ${section}`);
@@ -135,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => {
         console.error('Error in section loading process:', error);
     });
-});
+
 
 // Add error handling to initialization functions
 function initAudioControls() {
