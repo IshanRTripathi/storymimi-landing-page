@@ -23,6 +23,51 @@ const config = {
     }
 };
 
+// Function to set audio volumes
+function setAudioVolumes() {
+    try {
+        // Get audio elements
+        const backgroundAudio = document.getElementById('backgroundAudio');
+        const demoAudioPersonalized = document.getElementById('demoAudioPersonalized');
+        const demoAudioNormal = document.getElementById('demoAudioNormal');
+
+        // Helper function to set volume with error checks
+        function setVolume(audioElement, volume, name) {
+            if (!audioElement) {
+                console.warn(`${name} audio element not found.`);
+                return;
+            }
+
+            // Check if the audio has a valid source
+            const source = audioElement.querySelector('source');
+            if (!source || !source.src) {
+                console.warn(`${name} audio source is missing or invalid.`);
+                return;
+            }
+
+            // Set volume safely
+            audioElement.volume = volume;
+            console.log(`${name} volume set to ${volume * 100}%`);
+        }
+
+        setVolume(backgroundAudio, 0.3, 'Background');
+        setVolume(demoAudioPersonalized, 0.5, 'Demo Personalized');
+        setVolume(demoAudioNormal, 0.5, 'Demo Normal');
+    } catch (error) {
+        console.error('Error setting audio volumes:', error);
+    }
+}
+
+// Run when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    setAudioVolumes();
+});
+
+// Run again after all assets are fully loaded
+window.addEventListener('load', () => {
+    setAudioVolumes();
+});
+
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, starting initialization...');
@@ -39,6 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
         initModal();
         initMagneticButton();
         loadSections();
+        
+        console.log('All components initialized successfully');
     } catch (error) {
         console.error('Error during initialization:', error);
     }
@@ -189,11 +236,29 @@ function initAccessibilityControls() {
 function initBackgroundAudio() {
     const backgroundAudio = document.getElementById('backgroundAudio');
     if (backgroundAudio) {
-        backgroundAudio.volume = 0.3;
+        backgroundAudio.volume = 0.3; // 30% volume for background
         // Handle missing audio files
         backgroundAudio.onerror = function() {
             console.log('Background audio not found, continuing without it');
             backgroundAudio.style.display = 'none';
+        };
+    }
+
+    // Set demo audio volume to 50%
+    const demoAudioPersonalized = document.getElementById('demoAudioPersonalized');
+    const demoAudioNormal = document.getElementById('demoAudioNormal');
+    
+    if (demoAudioPersonalized) {
+        demoAudioPersonalized.volume = 0.5;
+        demoAudioPersonalized.onerror = function() {
+            console.log('Personalized demo audio not found');
+        };
+    }
+    
+    if (demoAudioNormal) {
+        demoAudioNormal.volume = 0.5;
+        demoAudioNormal.onerror = function() {
+            console.log('Normal demo audio not found');
         };
     }
 }
